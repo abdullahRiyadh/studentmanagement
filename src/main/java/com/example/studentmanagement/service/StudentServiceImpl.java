@@ -42,6 +42,7 @@ public class StudentServiceImpl implements StudentService {
             Student student = studentOptional.get();
             student.setName(studentDetails.getName());
             student.setEmail(studentDetails.getEmail());
+            student.setDateOfBirth(studentDetails.getDateOfBirth());
 
             return studentRepository.save(student);
         }
