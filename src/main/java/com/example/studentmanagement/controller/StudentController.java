@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/students")
@@ -56,6 +57,19 @@ public class StudentController {
     @GetMapping("/search")
     public List<Student> searchStudentByName(@RequestParam String name) {
         return studentService.searchStudentByName(name);
+    }
+
+    //exact
+    @GetMapping("email")
+    public Optional<Student> findStudentByEmail(@RequestParam String email) {
+        return studentService.getStudentByExactEmail(email);
+    }
+
+
+    //partial
+    @GetMapping("/emailsearch")
+    public List<Student> getStudentByEmail(@RequestParam String email) {
+        return studentService.getStudentByEmail(email);
     }
 
 

@@ -66,6 +66,19 @@ public class StudentServiceImpl implements StudentService {
         return studentRepository.findByNameContainingIgnoreCase(name);
     }
 
+    //exact
+    @Override
+    public Optional<Student> getStudentByExactEmail(String email) {
+        return studentRepository.findByExactEmail(email);
+    }
+
+
+    //partial
+    @Override
+    public List<Student> getStudentByEmail(String email) {
+        return studentRepository.findByEmail(email);
+    }
+
 
 }
 
