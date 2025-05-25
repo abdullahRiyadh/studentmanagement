@@ -44,9 +44,9 @@ public class StudentServiceImpl implements StudentService {
             student.setEmail(studentDetails.getEmail());
             return studentRepository.save(student);
         }
-        else {
+
         return null;
-    }
+
     }
 
     @Override
