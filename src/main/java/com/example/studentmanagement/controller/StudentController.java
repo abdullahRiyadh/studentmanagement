@@ -47,6 +47,16 @@ public class StudentController {
         studentService.deleteStudent(id);
     }
 
+    @GetMapping("name/{name}")
+    public List<Student> getStudentByName(@PathVariable String name) {
+        return studentService.getStudentsByName(name);
+
+    }
+
+    @GetMapping("/search")
+    public List<Student> searchStudentByName(@RequestParam String name) {
+        return studentService.searchStudentByName(name);
+    }
 
 
 }

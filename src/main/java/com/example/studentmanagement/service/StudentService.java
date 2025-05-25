@@ -10,4 +10,6 @@ public interface StudentService {
     Student getStudentById(Long id);
     Student updateStudent(Long id, Student student);
     void deleteStudent(Long id);
+    List<Student> getStudentsByName(String name); //exact
+    List<Student> searchStudentByName(String studentName); //partial
 }
