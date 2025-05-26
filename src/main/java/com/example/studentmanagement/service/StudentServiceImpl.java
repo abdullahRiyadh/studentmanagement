@@ -4,7 +4,11 @@ package com.example.studentmanagement.service;
 import com.example.studentmanagement.model.Student;
 import com.example.studentmanagement.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -77,6 +81,12 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Student> getStudentByEmail(String email) {
         return studentRepository.findByEmail(email);
+    }
+
+    @Override
+    public Page<Student> getStudentByPage(int page, int size) {
+        Pageable pageable =PageRequest.of(page, size);
+        return studentRepository.findAllByNative(pageable);
     }
 
 

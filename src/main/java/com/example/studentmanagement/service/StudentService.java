@@ -1,6 +1,7 @@
 package com.example.studentmanagement.service;
 
 import com.example.studentmanagement.model.Student;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,4 +22,6 @@ public interface StudentService {
 
     //partial
     List<Student>getStudentByEmail(String email);
+
+    Page<Student>getStudentByPage(int page, int size);
 }

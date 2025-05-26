@@ -4,6 +4,7 @@ package com.example.studentmanagement.controller;
 import com.example.studentmanagement.model.Student;
 import com.example.studentmanagement.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -70,6 +71,12 @@ public class StudentController {
     @GetMapping("/emailsearch")
     public List<Student> getStudentByEmail(@RequestParam String email) {
         return studentService.getStudentByEmail(email);
+    }
+
+
+    @GetMapping("/paginated")
+    public Page<Student> getStudentByPage(@RequestParam int page, @RequestParam int size) {
+        return studentService.getStudentByPage(page, size);
     }
 
 
